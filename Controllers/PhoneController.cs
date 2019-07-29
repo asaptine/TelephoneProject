@@ -17,12 +17,7 @@ namespace Projekt.Controllers
         public PhonesController(TellContext context)
         {
             _context = context;
-            /*if (_context.Phones.Count() < 2)
-            {
-                _context.Phones.Add(new Phone { RegistrationDate = DateTime.Now });
-                _context.Phones.Add(new Phone { RegistrationDate = DateTime.Now });
-                _context.SaveChanges();
-            }*/
+            
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Phone>>> GetPhoneItems()
@@ -40,7 +35,7 @@ namespace Projekt.Controllers
             return PhoneItem;
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Phone item)
+        public async Task<IActionResult> PutTodoPhone(int id, [FromBody] Phone item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

@@ -7,7 +7,6 @@ namespace Projekt.Models
 {
     public class Phone : BaseModel
     {
-        public int Id { get; set; } 
 
         [DataType(DataType.Date)]
         public DateTime RegistrationDate { get; set; }

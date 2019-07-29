@@ -22,14 +22,6 @@ namespace Projekt.Controllers
         {
             _context = context;
 
-            /*if (_context.Bills.Count() < 2)
-            {
-                // Create a new TodoItem if collection is empty,
-                // which means you can't delete all TodoItems.
-                _context.Bills.Add(new Bill { Amount = 159 });
-                _context.Bills.Add(new Bill { Amount = 15 });
-                _context.SaveChanges();
-            }*/
         }
 
         [HttpGet]
@@ -53,7 +45,7 @@ namespace Projekt.Controllers
             return todoItem;
         }
         [HttpPost]
-        public async Task<IActionResult> PostTodoItem(Bill item)
+        public async Task<IActionResult> PostTodoBill(Bill item)
         {
             _context.Bills.Add(item);
             await _context.SaveChangesAsync();
@@ -61,7 +53,7 @@ namespace Projekt.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Bill item)
+        public async Task<IActionResult> PutTodoBill(int id, [FromBody] Bill item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

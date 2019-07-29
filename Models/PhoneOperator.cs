@@ -7,7 +7,6 @@ namespace Projekt.Models
 {
     public class PhoneOperator : BaseModel
     {
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno i ne može sadržavati više od 10 znakova!")]
         [MaxLength(10)]

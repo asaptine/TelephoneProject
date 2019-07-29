@@ -47,7 +47,7 @@ namespace Projekt.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Operator item)
+        public async Task<IActionResult> PutTodoOperator(int id, [FromBody] Operator item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

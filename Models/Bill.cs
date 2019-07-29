@@ -9,11 +9,11 @@ namespace Projekt.Models
      public class Bill : BaseModel
     {
         
-        
-
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
+        [Required(ErrorMessage = "Ovo polje je obavezno!")]
+        [Column(TypeName = "decimal(10, 2)")]
         public Decimal Tax { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
@@ -22,7 +22,7 @@ namespace Projekt.Models
 
 
         [Required(ErrorMessage = "Ovo polje je obavezno i max duljina je 10 znamenaka!")]
-        [MaxLength(10), MinLength(1)]
+        [MaxLength(10, ErrorMessage = "Max duljina je 10 znamenaka."), MinLength(1)]
         public string Currency { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]

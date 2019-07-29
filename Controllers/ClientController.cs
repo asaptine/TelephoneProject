@@ -26,12 +26,12 @@ namespace Projekt.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Client>>> GetBankItems()
+        public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
             return await _context.Clients.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> GetClientItem(int id)
+        public async Task<ActionResult<Client>> GetClient(int id)
         {
             var ClientItem = await _context.Clients.FindAsync(id);
             if (ClientItem == null)
@@ -40,15 +40,18 @@ namespace Projekt.Controllers
             }
             return ClientItem;
         }
+        
         [HttpPost]
-        public async Task<IActionResult> PostClientItem(Client item)
+        public async Task<IActionResult> PostClient(Client item)
         {
             _context.Clients.Add(item);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
+
+
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Client item)
+        public async Task<IActionResult> PutClient(int id, [FromBody] Client item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

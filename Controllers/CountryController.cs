@@ -19,12 +19,12 @@ namespace Projekt.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Country>>> GetCountryItems()
+        public async Task<ActionResult<IEnumerable<Country>>> GetCountries()
         {
             return await _context.Countries.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Country>> GetCountryItem(int id)
+        public async Task<ActionResult<Country>> GetCountry(int id)
         {
             var CountryItem = await _context.Countries.FindAsync(id);
             if (CountryItem == null)
@@ -35,7 +35,7 @@ namespace Projekt.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Country item)
+        public async Task<IActionResult> PutTodoCountry(int id, [FromBody] Country item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

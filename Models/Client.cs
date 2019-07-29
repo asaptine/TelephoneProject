@@ -8,7 +8,6 @@ namespace Projekt.Models
     public class Client : BaseModel
 
     {
-        public int Id { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno i ne može sadržavati više od 20 znakova!")]
         [MaxLength(20)]

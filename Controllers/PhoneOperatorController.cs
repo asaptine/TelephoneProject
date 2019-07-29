@@ -16,12 +16,7 @@ namespace Projekt.Controllers
         public PhoneOperatorsController(TellContext context)
         {
             _context = context;
-            /*if (_context.PhoneOperators.Count() < 2)
-            {
-                _context.PhoneOperators.Add(new PhoneOperator { Sim = "Mini" });
-                _context.PhoneOperators.Add(new PhoneOperator { Sim = "Micro"});
-                _context.SaveChanges();
-            }*/
+            
         }
         [HttpGet]
         public async Task<ActionResult<IEnumerable<PhoneOperator>>> GetPhoneOperatorItems()
@@ -46,7 +41,7 @@ namespace Projekt.Controllers
             return StatusCode(201);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] PhoneOperator item)
+        public async Task<IActionResult> PutTodoPhoneOperator(int id, [FromBody] PhoneOperator item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;

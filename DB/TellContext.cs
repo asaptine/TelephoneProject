@@ -1,6 +1,11 @@
 ﻿using Projekt.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using System.Threading.Tasks;
+using System;
+using System.Threading;
+using Projekt.Extensions;
+
 
 namespace Projekt.DB
 {
@@ -25,28 +30,28 @@ namespace Projekt.DB
         
         public DbSet<BaseModel> Basemodels { get; set; }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // ...
-
             var cascadeFKs = modelBuilder.Model.GetEntityTypes()
-                .SelectMany(t => t.GetForeignKeys())
-                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
-
-            foreach (var fk in cascadeFKs)
-                fk.DeleteBehavior = DeleteBehavior.Restrict;
-
+               .SelectMany(t => t.GetForeignKeys())
+               .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);            foreach (var fk in cascadeFKs)
+               fk.DeleteBehavior = DeleteBehavior.Restrict;            
+               
             base.OnModelCreating(modelBuilder);
-        }
 
+            modelBuilder.Seed();
+        }
         // used for tracking columns
-        /* public override int SaveChanges(bool acceptAllChangesOnSuccess)
+        public override int SaveChanges(bool acceptAllChangesOnSuccess)
         {
             OnBeforeSaving();
             return base.SaveChanges(acceptAllChangesOnSuccess);
-        }*/
+        }
 
-        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default(CancellationToken))
+        public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             OnBeforeSaving();
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);

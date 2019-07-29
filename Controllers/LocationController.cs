@@ -46,7 +46,7 @@ namespace Projekt.Controllers
             return StatusCode(201);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(int id, [FromBody] Location item)
+        public async Task<IActionResult> PutTodoLocation(int id, [FromBody] Location item)
         {
             item.Id = id;
             _context.Entry(item).State = EntityState.Modified;
