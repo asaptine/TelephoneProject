@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Projekt.Models
 {
-     public class Bill : BaseModel
+     public class Bill : BaseEntity
     {
         
         [DataType(DataType.Date)]
@@ -21,8 +21,9 @@ namespace Projekt.Models
         public Decimal Amount { get; set; }
 
 
-        [Required(ErrorMessage = "Ovo polje je obavezno i max duljina je 10 znamenaka!")]
-        [MaxLength(10, ErrorMessage = "Max duljina je 10 znamenaka."), MinLength(1)]
+        [Required(ErrorMessage = "Ovo polje je obavezno ")]
+        [MaxLength(10, ErrorMessage = "Max duljina je 10 znamenaka.")]
+        [ MinLength(1, ErrorMessage = "Max duljina je 10 znamenaka.")]
         public string Currency { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]

@@ -24,21 +24,21 @@ namespace Projekt.Controllers
             return await _context.Countries.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Country>> GetCountry(int id)
+        public async Task<ActionResult<Country>> GetCountries(int id)
         {
-            var CountryItem = await _context.Countries.FindAsync(id);
-            if (CountryItem == null)
+            var country = await _context.Countries.FindAsync(id);
+            if (country == null)
             {
                 return NotFound();
             }
-            return CountryItem;
+            return country;
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoCountry(int id, [FromBody] Country item)
+        public async Task<IActionResult> PutCountries(int id, [FromBody] Country country)
         {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+            country.Id = id;
+            _context.Entry(country).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -46,25 +46,25 @@ namespace Projekt.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostCountryItem(Country item)
+        public async Task<IActionResult> PostCountries(Country country)
         {
-            _context.Countries.Add(item);
+            _context.Countries.Add(country);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
 
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoCountry(int id)
+        public async Task<IActionResult> DeleteCuntries(int id)
         {
-            var todoItem = await _context.Countries.FindAsync(id);
+            var country = await _context.Countries.FindAsync(id);
 
-            if (todoItem == null)
+            if (country == null)
             {
                 return NotFound();
             }
 
-            _context.Countries.Remove(todoItem);
+            _context.Countries.Remove(country);
             await _context.SaveChangesAsync();
 
             return NoContent();

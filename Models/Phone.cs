@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Projekt.Models
 {
-    public class Phone : BaseModel
+    public class Phone : BaseEntity
     {
 
         [DataType(DataType.Date)]

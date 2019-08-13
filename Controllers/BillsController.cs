@@ -25,7 +25,7 @@ namespace Projekt.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Bill>>> GetBillItems()
+        public async Task<ActionResult<IEnumerable<Bill>>> GetBills()
         {
             return await _context.Bills.ToListAsync();
         }
@@ -33,30 +33,29 @@ namespace Projekt.Controllers
 
         // GET: api/Todo/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Bill>> GetBillsItem(int id)
+        public async Task<ActionResult<Bill>> GetBills(int id)
         {
-            var todoItem = await _context.Bills.FindAsync(id);
+            var bill = await _context.Bills.FindAsync(id);
 
-            if (todoItem == null)
+            if (bill == null)
             {
                 return NotFound();
             }
 
-            return todoItem;
+            return bill;
         }
         [HttpPost]
-        public async Task<IActionResult> PostTodoBill(Bill item)
+        public async Task<IActionResult> PostBills(Bill bill)
         {
-            _context.Bills.Add(item);
+            _context.Bills.Add(bill);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoBill(int id, [FromBody] Bill item)
-        {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+        public async Task<IActionResult> PutBills(int id, [FromBody] Bill bill)
+        {bill.Id = id;
+            _context.Entry(bill).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -67,16 +66,16 @@ namespace Projekt.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoBill(int id)
+        public async Task<IActionResult> DeleteBill(int id)
         {
-            var todoItem = await _context.Bills.FindAsync(id);
+            var bill = await _context.Bills.FindAsync(id);
 
-            if (todoItem == null)
+            if (bill == null)
             {
                 return NotFound();
             }
 
-            _context.Bills.Remove(todoItem);
+            _context.Bills.Remove(bill);
             await _context.SaveChangesAsync();
 
             return NoContent();

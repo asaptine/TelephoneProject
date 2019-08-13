@@ -16,56 +16,51 @@ namespace Projekt.Controllers
         public LocationsController(TellContext context)
         {
             _context = context;
-            /*if (_context.Locations.Count() < 2)
-            {
-                _context.Locations.Add(new Location { Name = "Mraclin" });
-                _context.Locations.Add(new Location { Name = "Velika Gorica" });
-                _context.SaveChanges();
-            }*/
+            
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Location>>> GetLocationItems()
+        public async Task<ActionResult<IEnumerable<Location>>> GetLocations()
         {
             return await _context.Locations.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Location>> GetLocationItem(int id)
+        public async Task<ActionResult<Location>> GetLocations(int id)
         {
-            var LocationItem = await _context.Locations.FindAsync(id);
-            if (LocationItem == null)
+            var location = await _context.Locations.FindAsync(id);
+            if (location == null)
             {
                 return NotFound();
             }
-            return LocationItem;
+            return location;
         }
         [HttpPost]
-        public async Task<IActionResult> PostLocationItem(Location item)
+        public async Task<IActionResult> PostLocations(Location location)
         {
-            _context.Locations.Add(item);
+            _context.Locations.Add(location);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoLocation(int id, [FromBody] Location item)
+        public async Task<IActionResult> PutTLocations(int id, [FromBody] Location location)
         {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+            location.Id = id;
+            _context.Entry(location).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoLocation(int id)
+        public async Task<IActionResult> DeleteLocations(int id)
         {
-            var todoItem = await _context.Locations.FindAsync(id);
+            var location = await _context.Locations.FindAsync(id);
 
-            if (todoItem == null)
+            if (location == null)
             {
                 return NotFound();
             }
 
-            _context.Locations.Remove(todoItem);
+            _context.Locations.Remove(location);
             await _context.SaveChangesAsync();
 
             return NoContent();

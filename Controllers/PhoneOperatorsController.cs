@@ -19,32 +19,32 @@ namespace Projekt.Controllers
             
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PhoneOperator>>> GetPhoneOperatorItems()
+        public async Task<ActionResult<IEnumerable<PhoneOperator>>> GetPhoneOperators()
         {
             return await _context.PhoneOperators.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<PhoneOperator>> GetPhoneOperatorItem(int id)
+        public async Task<ActionResult<PhoneOperator>> GetPhoneOperators(int id)
         {
-            var PhoneOperatorItem = await _context.PhoneOperators.FindAsync(id);
-            if (PhoneOperatorItem == null)
+            var phoneOperator = await _context.PhoneOperators.FindAsync(id);
+            if (phoneOperator == null)
             {
                 return NotFound();
             }
-            return PhoneOperatorItem;
+            return phoneOperator;
         }
         [HttpPost]
-        public async Task<IActionResult> PostPhoneOperatorItem(PhoneOperator item)
+        public async Task<IActionResult> PostPhoneOperators(PhoneOperator phoneOperator)
         {
-            _context.PhoneOperators.Add(item);
+            _context.PhoneOperators.Add(phoneOperator);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoPhoneOperator(int id, [FromBody] PhoneOperator item)
+        public async Task<IActionResult> PutPhoneOperators(int id, [FromBody] PhoneOperator phoneOperator)
         {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+            phoneOperator.Id = id;
+            _context.Entry(phoneOperator).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -52,16 +52,16 @@ namespace Projekt.Controllers
 
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoPhoneOperator(int id)
+        public async Task<IActionResult> DeletePhoneOperators(int id)
         {
-            var todoItem = await _context.PhoneOperators.FindAsync(id);
+            var phoneOperator = await _context.PhoneOperators.FindAsync(id);
 
-            if (todoItem == null)
+            if (phoneOperator == null)
             {
                 return NotFound();
             }
 
-            _context.PhoneOperators.Remove(todoItem);
+            _context.PhoneOperators.Remove(phoneOperator);
             await _context.SaveChangesAsync();
 
             return NoContent();

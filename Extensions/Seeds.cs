@@ -13,7 +13,7 @@ namespace Projekt.Extensions
             Phones(modelBuilder);
             Clients(modelBuilder);
             Countries(modelBuilder);
-            Operators(modelBuilder);
+            AppOperators(modelBuilder);
             PhoneOperators(modelBuilder);
             Locations(modelBuilder);
         }
@@ -25,6 +25,7 @@ namespace Projekt.Extensions
             modelBuilder.Entity<Bill>().HasData(
                 new Bill()
                 {
+                    Id = 1,
                     Date=DateTime.Parse("2019-01-01"),
                     Tax = 25,
                     Amount = 1000,
@@ -34,6 +35,7 @@ namespace Projekt.Extensions
                 },
                 new Bill()
                 {
+                    Id = 2,
                     Date=DateTime.Parse("2019-02-01"),
                     Tax = 25,
                     Amount = 100,
@@ -43,6 +45,7 @@ namespace Projekt.Extensions
                 },
                 new Bill()
                 {
+                    Id = 3,
                     Date=DateTime.Parse("2019-01-02"),
                     Tax = 20,
                     Amount = 1000,
@@ -88,7 +91,7 @@ namespace Projekt.Extensions
                 },
                 new Client()
                 {
-                    Id = 2,
+                    Id = 10,
                     FirstName = "Valentin",
                     LastName = "Štuban",
                     BirthDate = DateTime.Parse("1996-03-14"),
@@ -98,7 +101,7 @@ namespace Projekt.Extensions
                 },
                 new Client()
                 {
-                    Id = 3,
+                    Id = 9,
                     FirstName = "Marko",
                     LastName = "Štuban",
                     BirthDate = DateTime.Parse("1999-03-14"),
@@ -130,26 +133,29 @@ namespace Projekt.Extensions
                 }
             );
         }
-        public static void Operators(ModelBuilder modelBuilder)
+        public static void AppOperators(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Operator>().HasData(
-                new Operator()
+            modelBuilder.Entity<AppOperator>().HasData(
+                new AppOperator()
                 {
-                    Id = 1,
+                    Id = 6,
                     DialingNumber = 0968630778,
-                    LocationId = 1
+                    LocationId = 1,
+                    Name = "vip"
                 },
-                new Operator()
+                new AppOperator()
                 {
-                    Id = 2,
+                    Id = 5,
                     DialingNumber = 0968640778,
-                    LocationId = 2
+                    LocationId = 2,
+                    Name = "A1"
                 },
-                new Operator()
+                new AppOperator()
                 {
-                    Id = 1,
+                    Id = 4,
                     DialingNumber = 0968610778,
-                    LocationId = 3
+                    LocationId = 3,
+                    Name = "Telekom"
                 }
             );
         }
@@ -166,13 +172,13 @@ namespace Projekt.Extensions
                 {
                     Id = 2,
                     RegistrationDate = DateTime.Parse("2019-03-03"),
-                    ClientId = 2
+                    ClientId = 9
                 },
                 new Phone()
                 {
                     Id = 3,
                     RegistrationDate = DateTime.Parse("2001-03-03"),
-                    ClientId = 3
+                    ClientId = 10
                 }
 
             );
@@ -184,21 +190,21 @@ namespace Projekt.Extensions
                 {
                     Id = 1,
                     Sim = "nano",
-                    OperatorId = 1,
+                    AppOperatorId = 6,
                     PhoneId = 1
                 },
                 new PhoneOperator()
                 {
                     Id = 2,
                     Sim = "micro",
-                    OperatorId = 2,
+                    AppOperatorId = 5,
                     PhoneId = 2
                 },
                 new PhoneOperator()
                 {
                     Id = 3,
                     Sim = "regular",
-                    OperatorId = 3,
+                    AppOperatorId = 4,
                     PhoneId = 3
                 }
 

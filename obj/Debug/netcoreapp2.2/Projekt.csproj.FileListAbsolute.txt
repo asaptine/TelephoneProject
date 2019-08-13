@@ -40,3 +40,17 @@ c:\Users\Josipa\Desktop\Praksa\Projekt\obj\Debug\netcoreapp2.2\Projekt.AssemblyI
 c:\Users\Josipa\Desktop\Praksa\Projekt\obj\Debug\netcoreapp2.2\Projekt.RazorTargetAssemblyInfo.cache
 c:\Users\Josipa\Desktop\Praksa\Projekt\obj\Debug\netcoreapp2.2\Projekt.dll
 c:\Users\Josipa\Desktop\Praksa\Projekt\obj\Debug\netcoreapp2.2\Projekt.pdb
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\bin\Debug\netcoreapp2.2\Projekt.deps.json
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\bin\Debug\netcoreapp2.2\Projekt.runtimeconfig.json
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\bin\Debug\netcoreapp2.2\Projekt.runtimeconfig.dev.json
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\bin\Debug\netcoreapp2.2\Projekt.dll
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\bin\Debug\netcoreapp2.2\Projekt.pdb
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.csprojAssemblyReference.cache
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.RazorAssemblyInfo.cache
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.RazorAssemblyInfo.cs
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.AssemblyInfoInputs.cache
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.AssemblyInfo.cs
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.RazorTargetAssemblyInfo.cache
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.dll
+C:\Users\Josipa\Desktop\Praksa\Telephone-Crud\obj\Debug\netcoreapp2.2\Projekt.pdb

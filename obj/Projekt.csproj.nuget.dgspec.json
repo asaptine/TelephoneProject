@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Josipa\\Desktop\\Praksa\\Projekt\\Projekt.csproj": {}
+    "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Josipa\\Desktop\\Praksa\\Projekt\\Projekt.csproj": {
+    "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Josipa\\Desktop\\Praksa\\Projekt\\Projekt.csproj",
+        "projectUniqueName": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj",
         "projectName": "Projekt",
-        "projectPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Projekt\\Projekt.csproj",
+        "projectPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj",
         "packagesPath": "C:\\Users\\Josipa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Projekt\\obj\\",
+        "outputPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

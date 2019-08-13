@@ -5,16 +5,16 @@ using System.Text;
 
 namespace Projekt.Models
 {
-    public class PhoneOperator : BaseModel
+    public class PhoneOperator : BaseEntity
     {
 
         [Required(ErrorMessage = "Ovo polje je obavezno i ne može sadržavati više od 10 znakova!")]
-        [MaxLength(10)]
+        [MaxLength(10, ErrorMessage = "Max duljina je 10 znakova.")]
         public string Sim { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
-        public int OperatorId { get; set; }
-        public Operator Operator { get; set; }
+        public int AppOperatorId { get; set; }
+        public AppOperator AppOperator { get; set; }
 
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]

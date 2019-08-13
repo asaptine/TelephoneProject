@@ -16,13 +16,7 @@ namespace Projekt.Controllers
         public ClientsController(TellContext context)
         {
             _context = context;
-/*            if (_context.Clients.Count() < 2)
-            {
-                _context.Clients.Add(new Client { LastName = "Buhovac", LocationId = 1 });
-                _context.Clients.Add(new Client { LastName = "Štuban", LocationId = 2 });
-                _context.SaveChanges();
-            }
-*/
+
         }
 
         [HttpGet]
@@ -31,45 +25,45 @@ namespace Projekt.Controllers
             return await _context.Clients.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Client>> GetClient(int id)
+        public async Task<ActionResult<Client>> GetClients(int id)
         {
-            var ClientItem = await _context.Clients.FindAsync(id);
-            if (ClientItem == null)
+            var client = await _context.Clients.FindAsync(id);
+            if (client == null)
             {
                 return NotFound();
             }
-            return ClientItem;
+            return client;
         }
         
         [HttpPost]
-        public async Task<IActionResult> PostClient(Client item)
+        public async Task<IActionResult> PostClients(Client client)
         {
-            _context.Clients.Add(item);
+            _context.Clients.Add(client);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClient(int id, [FromBody] Client item)
+        public async Task<IActionResult> PutClients(int id, [FromBody] Client client)
         {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+            client.Id = id;
+            _context.Entry(client).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoClient(int id)
+        public async Task<IActionResult> DeleteClients(int id)
         {
-            var todoItem = await _context.Clients.FindAsync(id);
+            var client = await _context.Clients.FindAsync(id);
 
-            if (todoItem == null)
+            if (client == null)
             {
                 return NotFound();
             }
 
-            _context.Clients.Remove(todoItem);
+            _context.Clients.Remove(client);
             await _context.SaveChangesAsync();
 
             return NoContent();

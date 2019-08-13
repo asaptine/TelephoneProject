@@ -5,17 +5,18 @@ using System.Text;
 
 namespace Projekt.Models
 {
-    public class Client : BaseModel
+    public class Client : BaseEntity
 
     {
 
         [Required(ErrorMessage = "Ovo polje je obavezno i ne može sadržavati više od 20 znakova!")]
-        [MaxLength(20)]
+        [MaxLength(20, ErrorMessage = "Max duljina je 20 znakova.")]
         public string LastName { get; set; }
 
 
         [Required(ErrorMessage = "Ovo polje je obavezno i ne može sadržavati više od 20 znakova!")]
-        [MaxLength(20)]
+        [MaxLength(10, ErrorMessage = "Max duljina je 20 znakova.")]
+        
         public string FirstName { get; set; }
 
         public string FullName
@@ -30,8 +31,7 @@ namespace Projekt.Models
         [Required]
         [MaxLength(100)]
         public string Email { get; set; }
-
-        [Required(ErrorMessage = "Ovo polje je obavezno!")]
+                                                                                                                                                                                                                                                                                                                                                                                                                            	 
         public int LocationId { get; set; }
         public Location Location { get; set; }
     }

@@ -20,25 +20,25 @@ namespace Projekt.Controllers
             
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Phone>>> GetPhoneItems()
+        public async Task<ActionResult<IEnumerable<Phone>>> GetPhones()
         {
             return await _context.Phones.ToListAsync();
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Phone>> GetPhoneItem(int id)
+        public async Task<ActionResult<Phone>> GetPhones(int id)
         {
-            var PhoneItem = await _context.Phones.FindAsync(id);
-            if (PhoneItem == null)
+            var phone = await _context.Phones.FindAsync(id);
+            if (phone == null)
             {
                 return NotFound();
             }
-            return PhoneItem;
+            return phone;
         }
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoPhone(int id, [FromBody] Phone item)
+        public async Task<IActionResult> PutPhones(int id, [FromBody] Phone phone)
         {
-            item.Id = id;
-            _context.Entry(item).State = EntityState.Modified;
+            phone.Id = id;
+            _context.Entry(phone).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -46,25 +46,25 @@ namespace Projekt.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> PostPhoneItem(Phone item)
+        public async Task<IActionResult> PostPhones(Phone phone)
         {
-            _context.Phones.Add(item);
+            _context.Phones.Add(phone);
             await _context.SaveChangesAsync();
             return StatusCode(201);
         }
 
         // DELETE: api/Todo/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteTodoPhone(int id)
+        public async Task<IActionResult> DeletePhones(int id)
         {
-            var todoItem = await _context.Phones.FindAsync(id);
+            var phone = await _context.Phones.FindAsync(id);
 
-            if (todoItem == null)
+            if (phone == null)
             {
-                return NotFound();
+                return NotFound(phone);
             }
 
-            _context.Phones.Remove(todoItem);
+            _context.Phones.Remove(phone);
             await _context.SaveChangesAsync();
 
             return NoContent();

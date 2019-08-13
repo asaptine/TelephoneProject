@@ -6,7 +6,6 @@ using System;
 using System.Threading;
 using Projekt.Extensions;
 
-
 namespace Projekt.DB
 {
     public class TellContext : DbContext
@@ -21,15 +20,12 @@ namespace Projekt.DB
 
         public DbSet<Country> Countries { get; set; }
 
-        public DbSet<Operator> Operators{ get; set; }
+        public DbSet<AppOperator> AppOperators{ get; set; }
 
         public DbSet<Location> Locations { get; set; }
 
         public DbSet<Phone> Phones { get; set; }
         public DbSet<PhoneOperator> PhoneOperators { get; set; }
-        
-        public DbSet<BaseModel> Basemodels { get; set; }
-
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -41,7 +37,6 @@ namespace Projekt.DB
                fk.DeleteBehavior = DeleteBehavior.Restrict;            
                
             base.OnModelCreating(modelBuilder);
-
             modelBuilder.Seed();
         }
         // used for tracking columns
@@ -77,6 +72,18 @@ namespace Projekt.DB
                     }
                 }
             }
+            /* private void OnBeforeOnModelCreating(ModelBuilder modelBuilder)
+            {
+                
+                modelBuilder.Seed();
+                modelBuilder.SoftDeleteSetup();
+            }
+
+            private void OnBeforeSaving()
+            {
+                this.UpdateBaseDateable();
+                this.UpdateSoftDeletable();
+             } */
         }
 
     }
