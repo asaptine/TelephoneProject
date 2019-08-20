@@ -27,11 +27,13 @@ namespace Projekt.Models
         public string Currency { get; set; }
 
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
+        [Column(TypeName = "decimal(10, 2)")]
+        public decimal FullPriceWithTax { get; set; }
+
+        [Required(ErrorMessage = "Ovo polje je obavezno!")]
         public int PhoneId { get; set; }
         public Phone Phone { get; set; }
 
-        [Required(ErrorMessage = "Ovo polje je obavezno!")]
-        [Column(TypeName = "decimal(10, 2)")]
-        public decimal FullPriceWithTax { get; set; }
+        
     }
 }

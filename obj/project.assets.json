@@ -12087,11 +12087,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj",
+      "projectUniqueName": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Core\\Projekt.csproj",
       "projectName": "Projekt",
-      "projectPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\Projekt.csproj",
+      "projectPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Core\\Projekt.csproj",
       "packagesPath": "C:\\Users\\Josipa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Crud\\obj\\",
+      "outputPath": "C:\\Users\\Josipa\\Desktop\\Praksa\\Telephone-Core\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

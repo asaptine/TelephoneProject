@@ -15,5 +15,6 @@ namespace Projekt.Models
         public int ClientId { get; set; }
         public Client Client { get; set; }
 
+        public ICollection<PhoneOperator> PhoneOperators {get ; set;}
     }
 }

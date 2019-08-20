@@ -20,5 +20,7 @@ namespace Projekt.Models
         [Required(ErrorMessage = "Ovo polje je obavezno!")]
         public int LocationId { get; set; }
         public Location Location { get; set; }
+
+        public ICollection<PhoneOperator> PhoneOperators {get ; set;}
     }
 }
