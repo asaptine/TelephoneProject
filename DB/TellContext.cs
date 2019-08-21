@@ -31,24 +31,22 @@ namespace Projekt.DB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // ...
-/*             var cascadeFKs = modelBuilder.Model.GetEntityTypes()
+           /* var cascadeFKs = modelBuilder.Model.GetEntityTypes()
                .SelectMany(t => t.GetForeignKeys())
                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);foreach (var fk in cascadeFKs)
-               fk.DeleteBehavior = DeleteBehavior.Restrict;     */   
+               fk.DeleteBehavior = DeleteBehavior.Restrict;  */
 
-
-
+            
             modelBuilder.Entity<PhoneOperator>()
-                .HasOne<AppOperator>(sc => sc.AppOperator)
+                .HasOne(po => po.Phone)
                 .WithMany(s => s.PhoneOperators)
-                .HasForeignKey(sc => sc.AppOperator)
+                .HasForeignKey(sc => sc.PhoneId)
                 .OnDelete(DeleteBehavior.SetNull);
 
             modelBuilder.Entity<PhoneOperator>()
-                .HasOne<Phone>(sc => sc.Phone)
+                .HasOne(sc => sc.AppOperator)
                 .WithMany(s => s.PhoneOperators)
-                .HasForeignKey(sc => sc.Phone)
-                .OnDelete(DeleteBehavior.SetNull);
+                .HasForeignKey(sc => sc.AppOperatorId);
 
                
             base.OnModelCreating(modelBuilder);
